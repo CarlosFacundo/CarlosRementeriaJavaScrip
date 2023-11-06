@@ -1,0 +1,36 @@
+* { 
+    margin: 0%;
+    padding: 0%;
+    background-color: floralwhite;
+}
+html{
+    font-size: 62.5%;
+}
+
+header{
+    nav{
+        font-size: 2rem;
+    }
+}
+
+main{
+    h1{
+        font-size: 5rem;
+        color: blue;
+        text-align: center;
+    }
+    h2{
+        font-size: 2rem;
+        color: black;
+        margin-top: 10px;
+    }
+    form{
+        margin-top: 10px;
+        font-size: 1.5rem;
+        color: red;
+        input{
+            font-size: 1.5rem;
+            color: blueviolet
+        }
+    }
+    }
