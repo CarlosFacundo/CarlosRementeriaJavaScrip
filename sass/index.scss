@@ -1,36 +1,48 @@
-* { 
-    margin: 0%;
-    padding: 0%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     background-color: floralwhite;
-}
-html{
-    font-size: 62.5%;
+    color: #333;
 }
 
-header{
-    nav{
-        font-size: 2rem;
-    }
+header nav {
+    font-size: 2rem;
 }
 
-main{
-    h1{
-        font-size: 5rem;
-        color: blue;
-        text-align: center;
-    }
-    h2{
-        font-size: 2rem;
-        color: black;
-        margin-top: 10px;
-    }
-    form{
-        margin-top: 10px;
-        font-size: 1.5rem;
-        color: red;
-        input{
-            font-size: 1.5rem;
-            color: blueviolet
-        }
-    }
-    }
+main {
+    text-align: center;
+}
+
+main h1 {
+    font-size: 5rem;
+    color: blue;
+    margin-top: 20px;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: black;
+    margin-top: 10px;
+}
+
+main form {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: red;
+}
+
+main form input {
+    font-size: 1.5rem;
+    color: blueviolet;
+    padding: 8px;
+    border: 1px solid blueviolet;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
