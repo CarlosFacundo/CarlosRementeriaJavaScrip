@@ -13,13 +13,13 @@ const tarifas = {
         auto: 75000,
         moto: 60000,
         casa: 100000
-    }.auto6
+    }
 };
 
 function calcularCostoSeguro(edadConductor, tipoCobertura, tipoSeguro) {
     let costoBase = tarifas[tipoCobertura][tipoSeguro];
-    if (edadConductor < 30) {
-        costoBase *= 1.2;
+    if (tipoCobertura === 'completo' && edadConductor < 30) {
+        costoBase *= 1.2; // Aplicar el aumento del 20% para el seguro completo y edad < 30
     }
     return costoBase;
 }
@@ -40,7 +40,7 @@ document.getElementById('cotizarBtn').addEventListener('click', function(event) 
         precioTotal += costoSeguro;
         alert(`El costo total de los seguros cotizados es: $${precioTotal}`);
 
-        // Preguntarle al usuario si quiere seguir corizando
+        // Preguntarle al usuario si quiere seguir cotizando
         const continuar = prompt("¿Desea cotizar otro seguro? (Sí/No)").toLowerCase();
         if (continuar !== "si" && continuar !== "sí") {
             cotizando = false;
@@ -52,4 +52,3 @@ document.getElementById('cotizarBtn').addEventListener('click', function(event) 
         alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
     }
 });
-
