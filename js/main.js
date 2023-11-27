@@ -19,7 +19,7 @@ const tarifas = {
 function calcularCostoSeguro(edadConductor, tipoCobertura, tipoSeguro) {
     let costoBase = tarifas[tipoCobertura][tipoSeguro];
     if (tipoCobertura === 'completo' && edadConductor < 30) {
-        costoBase *= 1.2; // Aplicar el aumento del 20% para el seguro completo y edad < 30
+        costoBase *= 1.2;
     }
     return costoBase;
 }
@@ -44,6 +44,9 @@ document.getElementById('cotizarBtn').addEventListener('click', function(event) 
         const continuar = prompt("¿Desea cotizar otro seguro? (Sí/No)").toLowerCase();
         if (continuar !== "si" && continuar !== "sí") {
             cotizando = false;
+            if (continuar === "no") {
+                precioTotal = 0;
+            }
         }
     } else {
         alert("Edad ingresada no válida o tipo de cobertura incorrecto. Por favor, ingrese valores válidos.");
