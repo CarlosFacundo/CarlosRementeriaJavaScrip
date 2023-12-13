@@ -1,9 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Variables
+$color-principal: blue;
+$color-secundario: black;
+$color-borde-input: blueviolet;
+
+// Mixins
+@mixin estilos-input {
+    font-size: 1.5rem;
+    color: $color-principal;
+    padding: 8px;
+    border: 1px solid $color-borde-input;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
+// CSS anidado
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -12,37 +22,34 @@ body {
     color: #333;
 }
 
-header nav {
-    font-size: 2rem;
+header {
+    nav {
+        font-size: 2rem;
+    }
 }
 
 main {
     text-align: center;
-}
 
-main h1 {
-    font-size: 5rem;
-    color: blue;
-    margin-top: 20px;
-}
+    h1 {
+        font-size: 5rem;
+        color: $color-principal;
+        margin-top: 20px;
+    }
 
-main h2 {
-    font-size: 2rem;
-    color: black;
-    margin-top: 10px;
-}
+    h2 {
+        font-size: 2rem;
+        color: $color-secundario;
+        margin-top: 10px;
+    }
 
-main form {
-    margin-top: 10px;
-    font-size: 1.5rem;
-    color: red;
-}
+    form {
+        margin-top: 10px;
+        font-size: 1.5rem;
+        color: red;
 
-main form input {
-    font-size: 1.5rem;
-    color: blueviolet;
-    padding: 8px;
-    border: 1px solid blueviolet;
-    border-radius: 4px;
-    margin-bottom: 10px;
+        input {
+            @include estilos-input;
+        }
+    }
 }

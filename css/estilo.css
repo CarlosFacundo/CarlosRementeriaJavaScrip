@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -19,28 +13,24 @@ header nav {
 main {
   text-align: center;
 }
-
 main h1 {
   font-size: 5rem;
   color: blue;
   margin-top: 20px;
 }
-
 main h2 {
   font-size: 2rem;
   color: black;
   margin-top: 10px;
 }
-
 main form {
   margin-top: 10px;
   font-size: 1.5rem;
   color: red;
 }
-
 main form input {
   font-size: 1.5rem;
-  color: blueviolet;
+  color: blue;
   padding: 8px;
   border: 1px solid blueviolet;
   border-radius: 4px;

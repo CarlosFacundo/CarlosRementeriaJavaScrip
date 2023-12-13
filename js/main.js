@@ -16,42 +16,63 @@ const tarifas = {
     }
 };
 
-function calcularCostoSeguro(edadConductor, tipoCobertura, tipoSeguro) {
-    let costoBase = tarifas[tipoCobertura][tipoSeguro];
-    if (tipoCobertura === 'completo' && edadConductor < 30) {
-        costoBase *= 1.2;
-    }
-    return costoBase;
-}
-
 let precioTotal = 0;
 let cotizando = true;
 
+document.addEventListener('DOMContentLoaded', function() {
+    const savedAge = localStorage.getItem('savedAge');
+    if (savedAge) {
+        document.getElementById('edadConductor').value = savedAge;
+    }
+});
+
 document.getElementById('cotizarBtn').addEventListener('click', function(event) {
     event.preventDefault();
-    
+
     const edadConductor = parseInt(document.getElementById('edadConductor').value);
     const tipoCoberturaSeleccionado = document.getElementById('tipoCobertura').value;
     const tipoSeguroSeleccionado = document.getElementById('tipoSeguro').value;
-    
+
     if (!isNaN(edadConductor) && tarifas[tipoCoberturaSeleccionado] && tarifas[tipoCoberturaSeleccionado][tipoSeguroSeleccionado]) {
         const costoSeguro = calcularCostoSeguro(edadConductor, tipoCoberturaSeleccionado, tipoSeguroSeleccionado);
-        alert(`El costo del seguro es: $${costoSeguro}`);
-        precioTotal += costoSeguro;
-        alert(`El costo total de los seguros cotizados es: $${precioTotal}`);
 
-        // Preguntarle al usuario si quiere seguir cotizando
-        const continuar = prompt("¿Desea cotizar otro seguro? (Sí/No)").toLowerCase();
-        if (continuar !== "si" && continuar !== "sí") {
-            cotizando = false;
-            if (continuar === "no") {
+        if (tipoCoberturaSeleccionado === 'completo' && edadConductor < 30) {
+            const aumentoPorEdad = costoSeguro * 0.2;
+            const costoConAumento = costoSeguro + aumentoPorEdad;
+            const continuar = confirm(`El costo del seguro es: $${costoConAumento}. ¿Desea cotizar otro seguro?`);
+            if (!continuar) {
+                cotizando = false;
+                precioTotal += costoConAumento;
+                alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
+                localStorage.setItem('savedAge', edadConductor);
                 precioTotal = 0;
+            } else {
+                precioTotal += costoConAumento;
+                localStorage.setItem('savedAge', edadConductor);
+            }
+        } else {
+            const continuar = confirm(`El costo del seguro es: $${costoSeguro}. ¿Desea cotizar otro seguro?`);
+            if (!continuar) {
+                cotizando = false;
+                precioTotal += costoSeguro;
+                alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
+                localStorage.setItem('savedAge', edadConductor);
+                precioTotal = 0;
+            } else {
+                precioTotal += costoSeguro;
+                localStorage.setItem('savedAge', edadConductor);
             }
         }
     } else {
         alert("Edad ingresada no válida o tipo de cobertura incorrecto. Por favor, ingrese valores válidos.");
     }
+
     if (!cotizando) {
         alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
     }
 });
+
+function calcularCostoSeguro(edadConductor, tipoCobertura, tipoSeguro) {
+    let costoBase = tarifas[tipoCobertura][tipoSeguro];
+    return costoBase;
+}
