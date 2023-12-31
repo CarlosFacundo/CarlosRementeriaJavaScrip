@@ -2,7 +2,8 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background-color: floralwhite;
+  background-image: url("https://th.bing.com/th/id/OIP.Pb4VDdI7CWB6BdAYnqpT8QHaFS?rs=1&pid=ImgDetMain");
+  background-size: cover;
   color: #333;
 }
 
@@ -26,7 +27,7 @@ main h2 {
 main form {
   margin-top: 10px;
   font-size: 1.5rem;
-  color: red;
+  color: greenyellow;
 }
 main form input {
   font-size: 1.5rem;

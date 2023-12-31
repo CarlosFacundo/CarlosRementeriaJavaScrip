@@ -13,14 +13,17 @@ $color-borde-input: blueviolet;
     margin-bottom: 10px;
 }
 
-// CSS anidado
+$imagen-fondo: url('https://th.bing.com/th/id/OIP.Pb4VDdI7CWB6BdAYnqpT8QHaFS?rs=1&pid=ImgDetMain'); 
+
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background-color: floralwhite;
+    background-image: $imagen-fondo;
+    background-size: cover; 
     color: #333;
 }
+
 
 header {
     nav {
@@ -46,7 +49,7 @@ main {
     form {
         margin-top: 10px;
         font-size: 1.5rem;
-        color: red;
+        color:greenyellow;
 
         input {
             @include estilos-input;
