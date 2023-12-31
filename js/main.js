@@ -45,7 +45,6 @@ document.getElementById('cotizarBtn').addEventListener('click', function(event) 
                 precioTotal += costoConAumento;
                 alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
                 localStorage.setItem('savedAge', edadConductor);
-                precioTotal = 0;
             } else {
                 precioTotal += costoConAumento;
                 localStorage.setItem('savedAge', edadConductor);
@@ -57,7 +56,6 @@ document.getElementById('cotizarBtn').addEventListener('click', function(event) 
                 precioTotal += costoSeguro;
                 alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
                 localStorage.setItem('savedAge', edadConductor);
-                precioTotal = 0;
             } else {
                 precioTotal += costoSeguro;
                 localStorage.setItem('savedAge', edadConductor);
@@ -76,3 +74,4 @@ function calcularCostoSeguro(edadConductor, tipoCobertura, tipoSeguro) {
     let costoBase = tarifas[tipoCobertura][tipoSeguro];
     return costoBase;
 }
+
