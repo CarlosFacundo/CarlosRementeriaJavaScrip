@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizadora de Seguros</title>
+    <link rel="stylesheet" href="./css/estilo.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
+
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6590b4888d261e1b5f4daf97/1hiuk2ebf';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar scroll</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                                <li><a class="dropdown-item" href="#">Iniciar Sesion</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Contactanos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Cotizadora de Seguros E.I</h1>
+        <h2>Elegí tu mejor opción en seguros para tu vehículo</h2>
+        <div class="contenedor">
+            <h3>Tipos de seguros</h3>
+            <form id="formularioCotizacion">
+                <label for="edadConductor">Edad del conductor:</label>
+                <input type="number" id="edadConductor" name="edadConductor">
+                <br>
+                <label for="tipoCobertura">Tipo de cobertura:</label>
+                <select id="tipoCobertura">
+                    <option value="basico">Básico</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="completo">Completo</option>
+                </select>
+                <label>Año del auto/moto:</label>
+                <div id="opcionesAño">
+                    <input type="radio" id="2013" name="añoAuto" value="2013">
+                    <label for="2013">2013</label>
+                    <input type="radio" id="2014" name="añoAuto" value="2014">
+                    <label for="2014">2014</label>
+                    <input type="radio" id="2015" name="añoAuto" value="2015">
+                    <label for="2015">2015</label>
+                    <input type="radio" id="2016" name="añoAuto" value="2016">
+                    <label for="2016">2016</label>
+                    <input type="radio" id="2017" name="añoAuto" value="2017">
+                    <label for="2017">2017</label>
+                    <input type="radio" id="2018" name="añoAuto" value="2018">
+                    <label for="2018">2018</label>
+                    <input type="radio" id="2019" name="añoAuto" value="2019">
+                    <label for="2019">2019</label>
+                    <input type="radio" id="2020" name="añoAuto" value="2020">
+                    <label for="2020">2020</label>
+                    <input type="radio" id="2021" name="añoAuto" value="2021">
+                    <label for="2021">2021</label>
+                    <input type="radio" id="2022" name="añoAuto" value="2022">
+                    <label for="2022">2022</label>
+                    <input type="radio" id="2023" name="añoAuto" value="2023">
+                    <label for="2023">2023</label>
+                    <input type="radio" id="2024" name="añoAuto" value="2024">
+                    <label for="2024">2024</label>
+                </div>
+                <br>
+                <br>
+                <label for="tipoSeguro">Tipo de seguro:</label>
+                <select id="tipoSeguro">
+                    <option value="auto">Auto</option>
+                    <option value="moto">Moto</option>
+                    <option value="casa">Casa</option>
+                </select>
+                <br>
+                <button id="cotizarBtn">Cotizar Seguro</button>
+            </form>
+        </div>
+        <div id="preciosCotizados"></div>
+    </main>
+    <footer></footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedAge = localStorage.getItem('savedAge');
+            if (savedAge) {
+                document.getElementById('edadConductor').value = savedAge;
+            }
+        });
+
+        document.getElementById('cotizarBtn').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const edadConductor = parseInt(document.getElementById('edadConductor').value);
+            const tipoCoberturaSeleccionado = document.getElementById('tipoCobertura').value;
+            const tipoSeguroSeleccionado = document.getElementById('tipoSeguro').value;
+            const añoAuto = obtenerAñoSeleccionado();
+
+            if (!isNaN(edadConductor) && tarifas[tipoCoberturaSeleccionado] && tarifas[tipoCoberturaSeleccionado][tipoSeguroSeleccionado]) {
+                const costoSeguro = calcularCostoSeguro(edadConductor, tipoCoberturaSeleccionado, tipoSeguroSeleccionado, añoAuto);
+
+                if (tipoCoberturaSeleccionado === 'completo' && edadConductor < 30) {
+                    const aumentoPorEdad = costoSeguro * 0.2;
+                    const costoConAumentoEdad = costoSeguro + aumentoPorEdad;
+                    const diferenciaMenor30 = 2000;
+                    const costoConDiferencia = costoConAumentoEdad + diferenciaMenor30;
+
+                    const continuar = confirm(`El costo del seguro es: $${costoConDiferencia}. ¿Desea cotizar otro seguro?`);
+                    if (!continuar) {
+                        cotizando = false;
+                        precioTotal += costoConDiferencia;
+                        alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
+                        localStorage.setItem('savedAge', edadConductor);
+                    } else {
+                        precioTotal += costoConDiferencia;
+                        localStorage.setItem('savedAge', edadConductor);
+                    }
+                } else {
+                    const continuar = confirm(`El costo del seguro es: $${costoSeguro}. ¿Desea cotizar otro seguro?`);
+                    if (!continuar) {
+                        cotizando = false;
+                        precioTotal += costoSeguro;
+                        alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
+                        localStorage.setItem('savedAge', edadConductor);
+                    } else {
+                        precioTotal += costoSeguro;
+                        localStorage.setItem('savedAge', edadConductor);
+                    }
+                }
+            } else {
+                alert("Edad ingresada no válida o tipo de cobertura incorrecto. Por favor, ingrese valores válidos.");
+            }
+
+            if (!cotizando) {
+                alert(`El costo total de todos los seguros cotizados es: $${precioTotal}`);
+            }
+        });
+
+        function calcularCostoSeguro(edadConductor, tipoCobertura, tipoSeguro, añoAuto) {
+            const rangoAño = obtenerRangoAño(añoAuto);
+            let costoBase = tarifas[tipoCobertura][tipoSeguro][rangoAño] || 0;
+
+            if (edadConductor < 30) {
+                costoBase += 2000;
+            }
+
+            return costoBase;
+        }
+
+        function obtenerRangoAño(año) {
+            if (año >= 2013 && año <= 2015) {
+                return '2013-2015';
+            } else if (año >= 2016 && año <= 2022) {
+                return '2016-2022';
+            } else if (año >= 2023 && año <= 2024) {
+                return '2023-2024';
+            } else {
+                return 'Otro';
+            }
+        }
+
+        function obtenerAñoSeleccionado() {
+            const opcionesAño = document.getElementsByName('añoAuto');
+            let añoSeleccionado = '';
+
+            opcionesAño.forEach(opcion => {
+                if (opcion.checked) {
+                    añoSeleccionado = opcion.value;
+                }
+            });
+
+            return añoSeleccionado;
+        }
+    </script>
+
+    <!-- Bootstrap -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+

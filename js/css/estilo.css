@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-image: url("https://th.bing.com/th/id/OIP.Pb4VDdI7CWB6BdAYnqpT8QHaFS?rs=1&pid=ImgDetMain");
+  background-size: cover;
+  color: #333;
+}
+
+header nav {
+  font-size: 2rem;
+}
+
+main {
+  text-align: center;
+}
+main h1 {
+  font-size: 5rem;
+  color: blue;
+  margin-top: 20px;
+}
+main h2 {
+  font-size: 2rem;
+  color: black;
+  margin-top: 10px;
+}
+main form {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: rgb(118, 34, 4);
+}
+main form input {
+  font-size: 1.5rem;
+  color: blue;
+  padding: 8px;
+  border: 1px solid blueviolet;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=estilo.css.map */

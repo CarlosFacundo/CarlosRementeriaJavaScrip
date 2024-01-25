@@ -1,0 +1,58 @@
+// Variables
+$color-principal: blue;
+$color-secundario: black;
+$color-borde-input: blueviolet;
+
+// Mixins
+@mixin estilos-input {
+    font-size: 1.5rem;
+    color: $color-principal;
+    padding: 8px;
+    border: 1px solid $color-borde-input;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+$imagen-fondo: url('https://th.bing.com/th/id/OIP.Pb4VDdI7CWB6BdAYnqpT8QHaFS?rs=1&pid=ImgDetMain'); 
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-image: $imagen-fondo;
+    background-size: cover; 
+    color: #333;
+}
+
+
+header {
+    nav {
+        font-size: 2rem;
+    }
+}
+
+main {
+    text-align: center;
+
+    h1 {
+        font-size: 5rem;
+        color: $color-principal;
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: $color-secundario;
+        margin-top: 10px;
+    }
+
+    form {
+        margin-top: 10px;
+        font-size: 1.5rem;
+        color: rgb(118, 34, 4);
+
+        input {
+            @include estilos-input;
+        }
+    }
+}
